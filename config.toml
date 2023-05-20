@@ -1,0 +1,6 @@
+baseURL = 'http://example.org/'
+languageCode = 'ru-ru'
+title = 'Gobuch'
+theme = 'archie'
+
+pygmentsStyle = 'bw'
