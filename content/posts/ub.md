@@ -6,9 +6,7 @@ draft: false
 
 Это третья сказка, но вторую никак не допишу. Сегодня без ассемблера. Обещаю.
 
-```text
-Надпись на обратной стороне. Осторожно. Неопределённое поведение. При сложении двух знаковых чисел, в случае возникновения переполнения, калькулятор может выдать ошибку или взорваться. ПРОВЕРЯЙТЕ переполнение или ИЗБЕГАЙТЕ складывания чисел.
-```
+> Надпись на обратной стороне. Осторожно. Неопределённое поведение. При сложении двух знаковых чисел, в случае возникновения переполнения, калькулятор может выдать ошибку или взорваться. ПРОВЕРЯЙТЕ переполнение или ИЗБЕГАЙТЕ складывания чисел.
 
 Если вы программируете на языках C/C++ или варитесь возле этой темы, вам
 всегда будут попадаться люди, двух типов:
@@ -28,9 +26,7 @@ draft: false
 
 <!--more-->
 
-```text
-Программисты не боятся Бабы Яги, но боятся вещественной арифметики. Ха, не верите, ну так попробуйте подойти к программисту ночью в костюме float64. Если что, я вам этого не говорил.
-```
+> Программисты не боятся Бабы Яги, но боятся вещественной арифметики. Ха, не верите, ну так попробуйте подойти к программисту ночью в костюме float64. Если что, я вам этого не говорил.
 
 Да не, брось, какое ещё неопределённое поведение - слышу я от людей
 начиная этот рассказ. И правда в том, что чаще всего словосочетание _неопределённое поведение_
@@ -95,9 +91,7 @@ func main() {
 
 Хорошо, поищем чего в спецификации связанного с конвертацией числа с плавающей точкой в число целое, вот например есть такое:
 
-```text
-When converting a floating-point number to an integer, the fraction is discarded (truncation towards zero).
-```
+> When converting a floating-point number to an integer, the fraction is discarded (truncation towards zero).
 
 Так, отбросили дробную часть, а дальше по аналогии с `uint64`, поэтому результат аналогичен?
 
@@ -109,16 +103,12 @@ When converting a floating-point number to an integer, the fraction is discarded
 Ответ на основной вопрос — нет. Мы не можем рассчитывать на _один, конкретный_
 результат. Потому что результат — _implementation-dependent_.
 
-```text
-- Операция прошла успешно. Результат зависит от того как посмотреть.
-- ЧТО?
-```
+> - Операция прошла успешно. Результат зависит от того как посмотреть.
+> - ЧТО?
 
 Посмотрим внимательно на абзац (он расположен в конце блока озаглавленного `Conversions between numeric types`):
 
-```text
-In all non-constant conversions involving floating-point or complex values, if the result type cannot represent the value the conversion succeeds but the result value is implementation-dependent.
-```
+> In all non-constant conversions involving floating-point or complex values, if the result type cannot represent the value the conversion succeeds but the result value is implementation-dependent.
 
 Для всех не константных преобразований (типов) затрагивающих числа с плавающей точкой, если
 результирующий тип не может представить значение, конверсия будет успешной, но результирующее
@@ -134,9 +124,7 @@ In all non-constant conversions involving floating-point or complex values, if t
 
 Например, в стандарте С++ есть очень похожий термин - `implementation-defined behavior`:
 
-```text
-behavior, for a well-formed program ([defns.well.formed]) construct and correct data, that depends on the implementation and that each implementation documents
-```
+> behavior, for a well-formed program ([defns.well.formed]) construct and correct data, that depends on the implementation and that each implementation documents
 
 Говорит нам о том, что результат зависит от реализации и каждая реализация документирует поведение. Насчёт гошного _implementation-dependent_ я в спецификации
 не нашёл, единственное, что можно сказать, программа после такой конверсии не запаникует — `the value the conversion succeeds`, а результат — загадка.
