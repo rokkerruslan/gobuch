@@ -1,22 +1,15 @@
-baseURL = 'https://rokkerruslan.github.io'
+baseURL = 'https://example.org/'
 languageCode = 'ru-ru'
-theme = 'gobuchtm'
+title = 'Кот Не Работает'
+theme = 'hyde'
 
-[markup]
-  [markup.highlight]
-  style = 'github-dark'
-  tabWidth = 3
-
-[params]
-  brand = 'Кот Не Работает'
-  description = 'Сказки для инженеров-программистов младшего уровня'
-
-  dark_mode = false
-  menu = [
-    {Name = 'Заметки', URL = '/posts/', HasChildren = true, Limit = 5}
+[Menus]
+  main = [
+      {Name = "Github", URL = "https://github.com/rokkerruslan"},
+      {Name = "Matrix", URL = "https://matrix.to/#/@rokkerruslan:matrix.org"},
+      {Name = "Email", URL = "mailto:rokkerruslan@protonmail.com"},
+      {Name = "LinkedIn", URL = "https://linkedin.com/in/rokkerruslan"}
   ]
 
-  matrix_url = 'https://matrix.to/#/@rokkerruslan:matrix.org'
-  github_url = 'https://github.com/rokkerruslan'
-  email_url = 'mailto:rokkerruslan@protonmail.com'
-  linkedin_url = 'https://linkedin.com/in/rokkerruslan'
+[params]
+  description = 'Сказки для инженеров-программистов младшего уровня'
